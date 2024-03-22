@@ -2,7 +2,7 @@ import React from "react";
 
 function TextField({ label, name, id, value, onChange }) {
   return (
-    <div className="flex flex-col gap-2 justify-center items-start">
+    <div className="flex flex-col gap-2 justify-center items-start w-full">
       <label htmlFor={id} className="text-secondary-500">
         {label}
       </label>

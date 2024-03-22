@@ -5,3 +5,9 @@ export function getOtp(phoneNumber) {
     .post("/user/get-otp", { phoneNumber })
     .then(({ data }) => data.data);
 }
+
+export function checkOtp({ phoneNumber, otp }) {
+  return http
+    .post("/user/check-otp", { phoneNumber, otp })
+    .then(({ data }) => data.data);
+}

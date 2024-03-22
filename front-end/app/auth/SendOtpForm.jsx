@@ -5,7 +5,7 @@ import { ThreeDots } from "react-loader-spinner";
 function SendOtpForm({ phoneNumber, onChange, onSubmit, isPending }) {
   return (
     <form
-      className="flex flex-col gap-10 justify-center items-center"
+      className="flex flex-col gap-10 justify-center items-center min-w-[70%]"
       onSubmit={onSubmit}
     >
       <TextField
@@ -15,7 +15,7 @@ function SendOtpForm({ phoneNumber, onChange, onSubmit, isPending }) {
         value={phoneNumber}
       />
       <button
-        className="btn btn--primary w-full h-12 bg-gradient-to-l hover:bg-gradient-to-r from-primary-300 to-primary-500 text-white rounded-md mt-6 flex justify-center items-center "
+        className="btn btn--primary w-full"
         type="submit"
       >
         {isPending ? (

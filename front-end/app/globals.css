@@ -36,13 +36,13 @@
 
 @layer components {
   .textField__input {
-    @apply w-full py-3 px-4 rounded-md border-b border-pink-300 text-secondary-800  outline-none duration-200 transition-all ease-in-out hover:border-primary-300 focus:outline-none focus:border-primary-300 focus:shadow-lg focus:shadow-primary-200  focus:bg-white;
+    @apply w-full py-3 px-4 rounded-md border-b border-pink-300 text-secondary-800  outline-none duration-200 transition-all ease-in-out hover:border-primary-300 focus:outline-none focus:border-primary-300 focus:shadow-md focus:shadow-primary-200  focus:bg-white;
   }
   .btn {
     @apply px-2 py-1  rounded-2xl transition-all duration-300;
   }
   .btn--primary {
-    @apply px-4 py-3 text-primary-900 ;
+    @apply h-12 bg-gradient-to-l hover:bg-gradient-to-r from-primary-300 to-primary-500 text-white rounded-md mt-6 flex justify-center items-center  ;
   }
   .table__th {
     @apply border-b-2 border-b-gray-500 font-medium p-3 pr-8 pb-3 text-right;
