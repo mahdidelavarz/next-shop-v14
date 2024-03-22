@@ -6,8 +6,14 @@ import SendOtpForm from "./SendOtpForm";
 import { useState } from "react";
 import http from "@/services/httpService";
 import { toast } from "react-hot-toast";
+import { useMutation } from "@tanstack/react-query";
+import { getOtp } from "@/services/authServices";
 const AuthPage = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
+
+  const { data, error, isPending, mutateAsync } = useMutation({
+    mutationFn: getOtp,
+  });
 
   const handlePhoneNumber = (e) => {
     setPhoneNumber(e.target.value);
@@ -16,8 +22,8 @@ const AuthPage = () => {
   const handleSendOtp = async (e) => {
     e.preventDefault();
     try {
-      const data = await http.post("user/get-otp", { phoneNumber });
-      toast.success("")
+      const data = await mutateAsync(phoneNumber);
+      toast.success(data.message);
     } catch (error) {
       toast.error(error?.response?.data?.message);
     }
@@ -30,6 +36,7 @@ const AuthPage = () => {
           phoneNumber={phoneNumber}
           onChange={handlePhoneNumber}
           onSubmit={handleSendOtp}
+          isPending={isPending}
         />
         <div className="w-full flex flex-col justify-center items-center">
           <span className="mt-8 mb-6 text-secondary-400 ">Or SignUp Using</span>

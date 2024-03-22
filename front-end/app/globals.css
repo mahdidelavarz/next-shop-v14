@@ -75,6 +75,6 @@ body {
   min-height: 100vh;
   user-select: none;
   background-color: var(--background-app-rgb);
-  font-family: IranNastalig;
+  font-family: tanha;
   direction: rtl;
 }
