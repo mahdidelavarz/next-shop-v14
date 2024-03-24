@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import OtpInput from "react-otp-input";
 import { FaArrowRight } from "react-icons/fa6";
+import { ThreeDots } from "react-loader-spinner";
 function CheckOtpForm({
   onSubmit,
   otp,
@@ -9,6 +10,7 @@ function CheckOtpForm({
   onBack,
   time,
   onSendOtp,
+  isChecking,
 }) {
   return (
     <div>
@@ -35,7 +37,7 @@ function CheckOtpForm({
             containerStyle={{
               display: "flex",
               gap: "0.5rem",
-              flexDirection:"row-reverse"
+              flexDirection: "row-reverse",
             }}
             inputStyle={{
               width: "2.5rem",
@@ -47,7 +49,17 @@ function CheckOtpForm({
           />
         </div>
         <button type="submit" className="btn btn--primary w-full">
-          تایید
+          {isChecking ? (
+            <ThreeDots
+              height="60"
+              width="60"
+              radius="9"
+              color="white"
+              ariaLabel="loading"
+            />
+          ) : (
+            "تایید"
+          )}
         </button>
         {time > 0 ? (
           <p className="text-secondary-600 mt-5 w-full flex justify-center">

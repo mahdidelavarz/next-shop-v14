@@ -14,14 +14,14 @@ const AuthPage = () => {
   // !-----------------------------------------------states
   const [phoneNumber, setPhoneNumber] = useState("");
   const [otp, setOtp] = useState("");
-  const [step, setStep] = useState(2);
+  const [step, setStep] = useState(1);
   const [time, setTime] = useState(90);
   const router = useRouter();
   // !-----------------------------------------------mutations
   const { data, error, isPending, mutateAsync } = useMutation({
     mutationFn: getOtp,
   });
-  const { mutateAsync: mutateCheckOtp } = useMutation({
+  const { mutateAsync: mutateCheckOtp, isPending: isChecking } = useMutation({
     mutationFn: checkOtp,
   });
   // !-----------------------------------------------handlers
@@ -84,6 +84,7 @@ const AuthPage = () => {
             onBack={() => setStep(1)}
             time={time}
             onSendOtp={handleSendOtp}
+            isChecking={isChecking}
           />
         );
 
